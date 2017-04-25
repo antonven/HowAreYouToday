@@ -2,6 +2,7 @@ package myapps.wycoco.com.howareyoutoday;
 
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Point;
 import android.media.Image;
@@ -16,6 +17,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+
 /**
  * Created by dell on 3/13/2017.
  */
@@ -24,7 +27,7 @@ public class FragmentDialog  extends DialogFragment {
 
 
     ImageView happy, sad, tired, angry, confused, disappointed;
-
+    private OnCompleteListener mListener;
 
 
     @Nullable
@@ -59,9 +62,8 @@ public class FragmentDialog  extends DialogFragment {
         sad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentManager fm = getFragmentManager();
-                Bundle args = new Bundle();
-
+                mListener.onComplete("sad");
+                mListener.onCompletePhoto(0);
                 dismiss();
             }
         });
@@ -69,13 +71,18 @@ public class FragmentDialog  extends DialogFragment {
         happy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mListener.onComplete("happy");
+                mListener.onCompletePhoto(1);
                 dismiss();
+
             }
         });
 
         tired.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mListener.onComplete("tired");
+                mListener.onCompletePhoto(2);
                 dismiss();
             }
         });
@@ -83,7 +90,8 @@ public class FragmentDialog  extends DialogFragment {
         angry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                mListener.onComplete("angry");
+                mListener.onCompletePhoto(3);
                 dismiss();
             }
         });
@@ -91,23 +99,38 @@ public class FragmentDialog  extends DialogFragment {
         confused.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                mListener.onComplete("confused");
+                mListener.onCompletePhoto(4);
                 dismiss();
             }
         });
-
 
         disappointed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                mListener.onComplete("disappointed");
+                mListener.onCompletePhoto(5);
                 dismiss();
             }
         });
 
-
-
         return view;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try{
+            this.mListener = (OnCompleteListener)context;
+
+        }catch (final ClassCastException e ){
+
+        }
+    }
+
+    public static interface OnCompleteListener{
+        public void onComplete(String feeling);
+        public void onCompletePhoto(int feeling);
     }
 
 
