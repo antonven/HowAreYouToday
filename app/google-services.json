@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "306781539347",
+    "firebase_url": "https://metrosurveyapp.firebaseio.com",
+    "project_id": "metrosurveyapp",
+    "storage_bucket": "metrosurveyapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306781539347:android:6f472f4fea2d8748",
+        "android_client_info": {
+          "package_name": "myapps.wycoco.com.howareyoutoday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306781539347-akihgi9a502bc32k7q6dbc952qkacr53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZqF3h4n4Z3-8lG66eqwSthz44zPQ13TM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
